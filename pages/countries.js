@@ -3,7 +3,7 @@ import React from "react";
 const Countries = () => {
   return (
     <div>
-      <h1>Hi</h1>
+      <h1>Countries from Europe</h1>
       {/* <ul>
         {countries.map(country => {
             <li>{country.name}</li>;

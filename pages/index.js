@@ -4,6 +4,10 @@ import Nav from "../components/nav";
 import fetch from "isomorphic-unfetch";
 
 const Home = props => {
+  let countriesEurope = props.countries.filter(
+    country => country.region === "Europe"
+  );
+
   return (
     <div>
       <Head>
@@ -11,13 +15,23 @@ const Home = props => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Nav />
+
+      <h1>List of all countries</h1>
       <ul>
-        {props.countries.map(country => (
-          <li style={{ color: "black" }} key={country}>
-            {country.name}
+        {props.countries.map((country, index) => (
+          <li style={{ color: "black" }} key={index}>
+            {country.name} - {country.capital} - {country.alpha2Code}
           </li>
         ))}
       </ul>
+
+      <h1>List of all countries from Europe</h1>
+      {countriesEurope.map((country, index) => (
+        <li style={{ color: "black" }} key={index}>
+          {country.name} - {country.capital} - {country.alpha2Code}
+        </li>
+      ))}
+
       <style jsx>{``}</style>
     </div>
   );
